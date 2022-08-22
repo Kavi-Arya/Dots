@@ -1,0 +1,70 @@
+#! /bin/sh
+input=$(cat $HOME/.config/awesome-tmp | shuf -n 1)
+
+randomized () {
+  rm -rf $HOME/.config/awesome-theme-tmp
+  rm -rf $HOME/.config/awesome-theme-tmp
+  # cat $HOME/.config/awesome-tmp | shuf -n 1 >> $HOME/.config/awesome-theme-tmp
+}
+
+rmfing () {
+  # rm -rf $HOME/.config/gtk-3.0/settings.ini
+  rm -rf $HOME/.config/kitty/kitty.conf
+  rm -rf $HOME/.config/awesome/theme/init.lua
+  rm -rf $HOME/.config/awesome/theme/default-theme.lua
+  rm -rf $HOME/.config/awesome/widget/tmp.lua
+  #ADD Obsidian Theme
+}
+
+if-checking ()
+{
+  if test $input = "GRUVBOX";then
+    rmfing
+    cp -r $HOME/themes-wm/kitty-gruvbox.conf /home/kvl/.config/kitty/kitty.conf
+    cp -r $HOME/themes-wm/init-gruvbox.lua /home/kvl/.config/awesome/theme/init.lua
+    cp -r $HOME/themes-wm/default-theme-gruvbox.lua /home/kvl/.config/awesome/theme/default-theme.lua
+    touch /home/kvl/.config/awesome/widget/tmp.lua 
+    echo "theme_name = ' 🔥 '" >> /home/kvl/.config/awesome/widget/tmp.lua 
+    echo "Its Gruvbox"
+    echo 'awesome.restart()' | awesome-client
+    pkill kitty
+
+  elif test $input = "NORD";then
+    rmfing
+    cp -r $HOME/themes-wm/kitty-nord.conf /home/kvl/.config/kitty/kitty.conf
+    cp -r $HOME/themes-wm/init-nord.lua /home/kvl/.config/awesome/theme/init.lua
+    cp -r $HOME/themes-wm/default-theme-nord.lua /home/kvl/.config/awesome/theme/default-theme.lua
+    touch /home/kvl/.config/awesome/widget/tmp.lua 
+    echo "theme_name = ' 🌊 '" >> /home/kvl/.config/awesome/widget/tmp.lua 
+    echo "Its Nord"
+    echo 'awesome.restart()' | awesome-client
+    pkill kitty
+
+  elif test $input = "EVERFOREST";then
+    rmfing
+    cp -r $HOME/themes-wm/kitty-everforest.conf /home/kvl/.config/kitty/kitty.conf
+    cp -r $HOME/themes-wm/init-everforest.lua /home/kvl/.config/awesome/theme/init.lua
+    cp -r $HOME/themes-wm/default-theme-everforest.lua /home/kvl/.config/awesome/theme/default-theme.lua
+    touch /home/kvl/.config/awesome/widget/tmp.lua 
+    echo "theme_name = ' 🌲 '" >> /home/kvl/.config/awesome/widget/tmp.lua 
+    echo "Its Everforest"
+    echo 'awesome.restart()' | awesome-client
+    pkill kitty
+
+  elif test $input = "DRACULA";then
+    rmfing
+    cp -r $HOME/themes-wm/kitty-dracula.conf /home/kvl/.config/kitty/kitty.conf
+    cp -r $HOME/themes-wm/init-dracula.lua /home/kvl/.config/awesome/theme/init.lua
+    cp -r $HOME/themes-wm/default-theme-dracula.lua /home/kvl/.config/awesome/theme/default-theme.lua
+    touch /home/kvl/.config/awesome/widget/tmp.lua 
+    echo "theme_name = ' 🦇 '" >> /home/kvl/.config/awesome/widget/tmp.lua 
+    echo "Its Dracula"
+    echo 'awesome.restart()' | awesome-client
+    pkill kitty
+
+  else
+    echo 'awesome.restart()' | awesome-client
+  fi
+}
+
+

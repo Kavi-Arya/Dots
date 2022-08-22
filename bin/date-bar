@@ -1,0 +1,15 @@
+#!/bin/sh
+
+date=$(date +%r)
+powerline=$(echo -e "^c$blue^^c$black^^b$blue^  $date ")
+
+
+datebar ()
+{
+  pkill dwmbar-colored 
+  while true; do
+    xsetroot -name "$powerline"
+    sleep 0.2
+  done &
+}
+datebar
